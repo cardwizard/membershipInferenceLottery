@@ -1,0 +1,15 @@
+#Normal model res18
+#python main.py -a resnet18 --lr 0.015 --batch_size 128 --dist-url tcp://localhost:10005  --world-size 1 --rank 0 --data /scratch0/ahmdtaha/datasets/imagenet/ --cos --resume /fs/vulcan-projects/pruning_sgirish/classification/lth_tickets/model_b4bf649c52605ab7d32ba58c0242f335/model_best_1.pth.tar --dataset imagenet --evaluate --gpu 0 --exp_name temp  #--multiprocessing-distributed
+
+#Lottery 10 res18
+#python main.py -a resnet18 --lr 0.015 --batch_size 128 --dist-url tcp://localhost:10005  --world-size 1 --rank 0 --data /scratch0/ahmdtaha/datasets/imagenet/ --cos  --resume /fs/vulcan-projects/pruning_sgirish/classification/lth_tickets/model_f3eb8faab60ce8b326c3f3791c7df690/model_best.pth.tar --dataset imagenet --evaluate --gpu 0  --exp_name temp 
+#--exp_name lottery_10_50k #--multiprocessing-distributed
+
+
+#Normal model res50
+python main.py -a resnet50 --lr 0.015 --batch_size 128 --dist-url tcp://localhost:10005  --world-size 1 --rank 0 --data /scratch0/ahmdtaha/datasets/imagenet/ --pretrained --dataset imagenet --evaluate --gpu 0  --exp_name temp --only_val True
+
+#Lottery 10 res50
+#python main.py -a resnet50 --lr 0.015 --batch_size 128 --dist-url tcp://localhost:10005  --world-size 1 --rank 0 --data /scratch0/ahmdtaha/datasets/imagenet/ --cos  --resume /fs/vulcan-projects/pruning_sgirish/classification/model_2fec83b9f616801fd7ffa4238590a47f/model_best.pth.tar --dataset imagenet --evaluate --gpu 0  --exp_name temp
+#--exp_name lottery_10_50k #--multiprocessing-distributed
+
