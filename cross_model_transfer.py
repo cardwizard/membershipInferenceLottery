@@ -70,8 +70,8 @@ if __name__ == '__main__':
         source_results = []
 
         for tar in all_folders:
-            if tar == fol:
-                continue
+            #if tar == fol:
+            #    continue
             metrics = attack(tar,source_mlp_clf)
             metrics['source'] = str(source_folder)
             metrics['target'] = str(tar)
@@ -85,5 +85,5 @@ if __name__ == '__main__':
 
         print(fol,' done ')
 
-    df = pd.DataFrame(metrics)
+    df = pd.DataFrame(all_results)
     df.to_csv('transfer_results.csv')
