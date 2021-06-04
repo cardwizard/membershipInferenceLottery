@@ -44,8 +44,12 @@ def get_directory_paths(main_folder):
 
 def attack(folder_name,model):
     dataset, labels = get_dataset(folder_name)
-    X_train, X_test, y_train, y_test = sk.train_test_split(dataset.numpy(), labels.numpy(), test_size=0.20,random_state=42)
+    #X_train, X_test, y_train, y_test = sk.train_test_split(dataset.numpy(), labels.numpy(), test_size=0.20,random_state=42)
     #mlp_clf = pickle.load(open(folder_name / 'shadow_model.pkl','rb'))
+
+    X_test = dataset.numpy()
+    y_test = labels.numpy()
+
     mlp_pred = model.predict(X_test)
 
     results = {"Precision": precision_score(mlp_pred, y_test), "Accuracy": accuracy_score(mlp_pred, y_test), "Recall": recall_score(mlp_pred, y_test)}
